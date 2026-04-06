@@ -1,0 +1,36 @@
+package {{PACKAGE}};
+
+import java.util.List;
+
+/**
+ * Model: {{MODEL_NAME}}
+ * Description: {{MODEL_DESCRIPTION}}
+ * Maps to: {{JSON_SCHEMA_REF}}
+ */
+public class {{MODEL_NAME}} {
+
+    {{#FIELDS}}
+    private {{FIELD_TYPE}} {{FIELD_NAME}};
+    {{/FIELDS}}
+
+    public {{MODEL_NAME}}() {}
+
+    {{#FIELDS}}
+    public {{FIELD_TYPE}} get{{FIELD_NAME_PASCAL}}() {
+        return {{FIELD_NAME}};
+    }
+
+    public {{MODEL_NAME}} set{{FIELD_NAME_PASCAL}}({{FIELD_TYPE}} {{FIELD_NAME}}) {
+        this.{{FIELD_NAME}} = {{FIELD_NAME}};
+        return this;
+    }
+
+    {{/FIELDS}}
+
+    @Override
+    public String toString() {
+        return "{{MODEL_NAME}}{" +
+            {{#FIELDS}}"{{FIELD_NAME}}=" + {{FIELD_NAME}} + ", " +{{/FIELDS}}
+            "}";
+    }
+}

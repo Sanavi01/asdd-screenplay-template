@@ -1,0 +1,23 @@
+package {{PACKAGE}};
+
+import net.serenitybdd.screenplay.targets.Target;
+
+/**
+ * Page Object: {{CLASS_NAME}}
+ * URL: {{PAGE_URL}}
+ * Description: {{PAGE_DESCRIPTION}}
+ *
+ * Contains Target definitions for all interactable UI elements on this page.
+ * No logic or Screenplay calls — purely element locators.
+ */
+public class {{CLASS_NAME}} {
+
+    {{#ELEMENTS}}
+    /**
+     * {{ELEMENT_DESCRIPTION}}
+     */
+    public static final Target {{ELEMENT_CONSTANT_NAME}} =
+        Target.the("{{ELEMENT_DESCRIPTION}}").locatedBy("{{LOCATOR}}");
+
+    {{/ELEMENTS}}
+}

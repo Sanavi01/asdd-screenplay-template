@@ -1,0 +1,22 @@
+package {{PACKAGE}};
+
+import net.serenitybdd.rest.SerenityRest;
+import net.serenitybdd.screenplay.Actor;
+import net.serenitybdd.screenplay.Question;
+
+/**
+ * Question: {{QUESTION_NAME}}
+ * Description: {{QUESTION_DESCRIPTION}}
+ * Returns: {{RETURN_TYPE}}
+ */
+public class {{QUESTION_NAME}} implements Question<{{RETURN_TYPE}}> {
+
+    public static {{QUESTION_NAME}} {{FACTORY_METHOD_NAME}}() {
+        return new {{QUESTION_NAME}}();
+    }
+
+    @Override
+    public {{RETURN_TYPE}} answeredBy(Actor actor) {
+        return {{VALUE_EXPRESSION}};
+    }
+}

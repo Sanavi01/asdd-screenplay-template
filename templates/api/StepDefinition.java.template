@@ -1,0 +1,46 @@
+package {{PACKAGE}};
+
+import {{TASK_IMPORTS}};
+import {{QUESTION_IMPORTS}};
+import {{MODEL_IMPORTS}};
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.When;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.And;
+import net.serenitybdd.screenplay.Actor;
+
+import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
+import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
+import static org.assertj.core.api.Assertions.assertThat;
+
+/**
+ * Step Definitions: {{CLASS_NAME}}
+ * Feature: {{FEATURE_NAME}}
+ * Glue package: {{PACKAGE}}
+ */
+public class {{CLASS_NAME}} {
+
+    // Cross-step state — instance field (NOT static, to support parallel execution)
+    private {{MODEL_CLASS}} current{{MODEL_CLASS}};
+
+    @Given("{{GIVEN_STEP_PATTERN}}")
+    public void {{GIVEN_METHOD_NAME}}({{GIVEN_PARAMS}}) {
+        // Setup via Hooks — actor is already configured
+        theActorCalled("{{ACTOR_NAME}}");
+    }
+
+    @When("{{WHEN_STEP_PATTERN}}")
+    public void {{WHEN_METHOD_NAME}}({{WHEN_PARAMS}}) {
+        Actor actor = theActorInTheSpotlight();
+        current{{MODEL_CLASS}} = new {{MODEL_CLASS}}()
+            {{MODEL_BUILDER_CALLS}};
+        actor.attemptsTo({{TASK_CLASS}}.{{TASK_FACTORY}}(current{{MODEL_CLASS}}));
+    }
+
+    @Then("{{THEN_STEP_PATTERN}}")
+    public void {{THEN_METHOD_NAME}}({{THEN_PARAMS}}) {
+        Actor actor = theActorInTheSpotlight();
+        assertThat(actor.asksFor({{QUESTION_CLASS}}.{{QUESTION_FACTORY}}()))
+            .{{ASSERTION_METHOD}}({{EXPECTED_VALUE}});
+    }
+}
