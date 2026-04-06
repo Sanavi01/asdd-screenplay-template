@@ -16,8 +16,8 @@ The ASDD workflow transforms a specification into a runnable, reviewed test suit
 
 Before starting the pipeline:
 
-1. Fill in `requirements/api-requirements-template.md` and/or `requirements/e2e-requirements-template.md`.
-2. Place your spec in `specs/api/` or `specs/e2e/`.
+1. Fill in `.github/requirements/api-requirements-template.md` and/or `.github/requirements/e2e-requirements-template.md`.
+2. Place your spec in `.github/specs/api/` or `.github/specs/e2e/`.
 3. Confirm your Gradle build is working: `./gradlew compileTestJava`.
 
 ---
@@ -152,8 +152,8 @@ The developer then:
 
 Given a new `PATCH /pet/{id}/status` endpoint:
 
-1. Add the endpoint to `specs/api/petstore-api-spec.md`.
-2. Add the requirement to `requirements/api-requirements-template.md`.
+1. Add the endpoint to `.github/specs/api/petstore-api-spec.md`.
+2. Add the requirement to `.github/requirements/api-requirements-template.md`.
 3. Run the ASDD pipeline (or invoke agents manually).
 4. New artifacts generated:
    - `Scenario: Update pet status via PATCH` in `petstore.feature`.

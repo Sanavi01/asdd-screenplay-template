@@ -10,10 +10,10 @@ Contract documentation for what enters and exits the ASDD system at each stage o
 
 | Input | Location | Format | Required |
 |---|---|---|---|
-| API Specification | `specs/api/*.md` or URL | OpenAPI/Markdown | Conditional (API mode) |
-| E2E Specification | `specs/e2e/*.md` | Markdown | Conditional (E2E mode) |
-| API Requirements | `requirements/api-requirements-template.md` | Markdown | Recommended |
-| E2E Requirements | `requirements/e2e-requirements-template.md` | Markdown | Recommended |
+| API Specification | `.github/specs/api/*.md` or URL | OpenAPI/Markdown | Conditional (API mode) |
+| E2E Specification | `.github/specs/e2e/*.md` | Markdown | Conditional (E2E mode) |
+| API Requirements | `.github/requirements/api-requirements-template.md` | Markdown | Recommended |
+| E2E Requirements | `.github/requirements/e2e-requirements-template.md` | Markdown | Recommended |
 | Pipeline Mode | CLI or config | `api`/`e2e`/`full` | No (default: `full`) |
 | Base URL overrides | System properties | `-Dapi.base.url=...` | No |
 
@@ -168,7 +168,7 @@ Maps requirement IDs to scenario names before review.
 - All generated `.java` files
 - All `.feature` files
 - Requirements documents
-- `instructions/shared-conventions.md`
+- `.github/instructions/shared-conventions.md`
 
 ### Outputs
 

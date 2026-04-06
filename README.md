@@ -1,11 +1,12 @@
 # ASDD Screenplay Template
 
-> **Agentic Spec-Driven Development** — A production-ready template for API and E2E test automation using Java 17, Serenity BDD 4.x, Screenplay Pattern, and Cucumber 7.x. Includes a full AI-agent orchestration layer that generates test code from specifications.
+> **Agentic Spec-Driven Development** — A production-ready template for API and E2E test automation using Java 17, Serenity BDD 5.x, Screenplay Pattern, and Cucumber 7.x. Includes a full AI-agent orchestration layer that generates test code from specifications.
 
 [![Java](https://img.shields.io/badge/Java-17-orange)](https://openjdk.org/projects/jdk/17/)
-[![Serenity BDD](https://img.shields.io/badge/Serenity-4.1.5-blue)](https://serenity-bdd.info/)
-[![Cucumber](https://img.shields.io/badge/Cucumber-7.15.0-green)](https://cucumber.io/)
-[![Gradle](https://img.shields.io/badge/Gradle-8.5-purple)](https://gradle.org/)
+[![Serenity BDD](https://img.shields.io/badge/Serenity-5.3.7-blue)](https://serenity-bdd.info/)
+[![Cucumber](https://img.shields.io/badge/Cucumber-7.20.1-green)](https://cucumber.io/)
+[![Gradle](https://img.shields.io/badge/Gradle-8.x-purple)](https://gradle.org/)
+[![CI](https://github.com/Sanavi01/asdd-screenplay-template/actions/workflows/ci.yml/badge.svg)](https://github.com/Sanavi01/asdd-screenplay-template/actions/workflows/ci.yml)
 
 ---
 
@@ -28,15 +29,16 @@ This template provides:
 
 | Layer | Contents |
 |---|---|
-| **Automation Framework** | Gradle project, Serenity BDD, Screenplay Pattern, Cucumber BDD |
+| **Automation Framework** | Gradle project, Serenity BDD 5.x, Screenplay Pattern, Cucumber BDD |
 | **API Testing** | PetStore CRUD example with Tasks, Questions, Models, Step Definitions |
 | **E2E Testing** | Login journey example with Page Objects, Tasks, Questions |
-| **Agent Layer** | 9 agents each with precise responsibilities (`agents/`) |
-| **Skills Layer** | 11 reusable skills invoked by agents (`skills/`) |
-| **Instructions** | API, E2E, and shared coding conventions (`instructions/`) |
-| **Specs & Requirements** | Example specs and requirement templates |
-| **Code Templates** | Java `.template` files for each artifact type |
-| **Documentation** | Full architecture, workflow, and configuration docs |
+| **Agent Layer** | 9 agents each with precise responsibilities (`.github/agents/`) |
+| **Skills Layer** | 11 reusable skills invoked by agents (`.github/skills/`) |
+| **Instructions** | API, E2E, and shared coding conventions (`.github/instructions/`) |
+| **Specs & Requirements** | Example specs and requirement templates (`.github/specs/`, `.github/requirements/`) |
+| **Code Templates** | Java `.template` files for each artifact type (`templates/`) |
+| **Documentation** | Full architecture, workflow, and configuration docs (`docs/`) |
+| **CI Pipeline** | GitHub Actions workflow for automated builds and tests (`.github/workflows/`) |
 
 ---
 
@@ -80,50 +82,45 @@ open build/site/serenity/index.html
 
 ```
 .
-├── build.gradle                          # Gradle build — Java 17, Serenity 4.x, Cucumber 7.x
+├── build.gradle                          # Gradle build — Java 17, Serenity 5.x, Cucumber 7.x
 ├── settings.gradle
 ├── gradlew / gradlew.bat
 │
-├── agents/                               # AI agent definitions
-│   ├── orchestrator-agent.md
-│   ├── spec-analyst-agent.md
-│   ├── test-designer-agent.md
-│   ├── screenplay-architect-agent.md
-│   ├── task-generator-agent.md
-│   ├── question-generator-agent.md
-│   ├── model-generator-agent.md
-│   ├── step-definition-agent.md
-│   └── review-agent.md
-│
-├── skills/                               # Reusable agent skills
-│   ├── spec-analyzer.md
-│   ├── gherkin-generator.md
-│   ├── screenplay-task-generator.md
-│   ├── screenplay-question-generator.md
-│   ├── model-generator.md
-│   ├── step-definition-generator.md
-│   ├── test-data-generator.md
-│   ├── coverage-analyzer.md
-│   ├── naming-convention-checker.md
-│   ├── contract-consistency-checker.md
-│   └── negative-case-designer.md
-│
-├── instructions/                         # Coding instructions for agents
-│   ├── api-automation-instructions.md
-│   ├── e2e-automation-instructions.md
-│   └── shared-conventions.md
-│
-├── requirements/                         # Requirement capture templates
-│   ├── api-requirements-template.md
-│   └── e2e-requirements-template.md
-│
-├── specs/                                # Example specifications
-│   ├── api/petstore-api-spec.md
-│   └── e2e/sample-webapp-spec.md
-│
-├── templates/                            # Java code templates with placeholders
-│   ├── api/  Task, Question, Model, StepDefinition
-│   └── e2e/  Task, Question, Page, StepDefinition
+├── .github/                              # GitHub + ASDD governance
+│   ├── agents/                           # AI agent definitions
+│   │   ├── orchestrator-agent.md
+│   │   ├── spec-analyst-agent.md
+│   │   ├── test-designer-agent.md
+│   │   ├── screenplay-architect-agent.md
+│   │   ├── task-generator-agent.md
+│   │   ├── question-generator-agent.md
+│   │   ├── model-generator-agent.md
+│   │   ├── step-definition-agent.md
+│   │   └── review-agent.md
+│   ├── instructions/                     # Coding instructions for agents
+│   │   ├── api-automation-instructions.md
+│   │   ├── e2e-automation-instructions.md
+│   │   └── shared-conventions.md
+│   ├── requirements/                     # Requirement capture templates
+│   │   ├── api-requirements-template.md
+│   │   └── e2e-requirements-template.md
+│   ├── skills/                           # Reusable agent skills
+│   │   ├── spec-analyzer.md
+│   │   ├── gherkin-generator.md
+│   │   ├── screenplay-task-generator.md
+│   │   ├── screenplay-question-generator.md
+│   │   ├── model-generator.md
+│   │   ├── step-definition-generator.md
+│   │   ├── test-data-generator.md
+│   │   ├── coverage-analyzer.md
+│   │   ├── naming-convention-checker.md
+│   │   ├── contract-consistency-checker.md
+│   │   └── negative-case-designer.md
+│   ├── specs/                            # Example specifications
+│   │   ├── api/petstore-api-spec.md
+│   │   └── e2e/sample-webapp-spec.md
+│   └── workflows/
+│       └── ci.yml                        # GitHub Actions CI pipeline
 │
 ├── docs/                                 # Full documentation
 │   ├── architecture.md
@@ -134,11 +131,17 @@ open build/site/serenity/index.html
 │   ├── inputs-outputs.md
 │   └── configuration-and-execution.md
 │
+├── templates/                            # Java code templates with placeholders
+│   ├── api/  Task, Question, Model, StepDefinition
+│   └── e2e/  Task, Question, Page, StepDefinition
+│
 └── src/test/
     ├── java/com/asdd/template/
-    │   ├── core/hooks/BaseHooks.java
-    │   ├── core/util/Constants.java
-    │   ├── api/
+    │   ├── core/                         # Shared / framework utilities
+    │   │   ├── actors/ActorFactory.java  # Centralised actor creation
+    │   │   ├── hooks/BaseHooks.java      # Global lifecycle hooks
+    │   │   └── util/Constants.java       # Shared constants
+    │   ├── api/                          # API test module
     │   │   ├── hooks/ApiHooks.java
     │   │   ├── model/Pet.java
     │   │   ├── questions/ ResponseStatusCode, ResponseBody
@@ -146,7 +149,7 @@ open build/site/serenity/index.html
     │   │   ├── stepdefinitions/PetStoreStepDefinitions.java
     │   │   ├── tasks/ CreatePet, GetPet, UpdatePet, DeletePet, ConfigureApi
     │   │   └── util/ApiConstants.java
-    │   └── e2e/
+    │   └── e2e/                          # E2E test module
     │       ├── hooks/E2eHooks.java
     │       ├── model/UserCredentials.java
     │       ├── pages/ LoginPage, DashboardPage
@@ -156,8 +159,9 @@ open build/site/serenity/index.html
     │       ├── tasks/ NavigateTo, Login, Logout
     │       └── util/E2eConstants.java
     └── resources/
-        ├── features/api/petstore.feature
-        ├── features/e2e/login.feature
+        ├── features/
+        │   ├── api/petstore.feature
+        │   └── e2e/login.feature
         ├── serenity.conf
         └── logback-test.xml
 ```
@@ -168,17 +172,17 @@ open build/site/serenity/index.html
 
 ### 1. Add Your Spec
 
-Place your API specification in `specs/api/my-api-spec.md`. Use the [PetStore example](specs/api/petstore-api-spec.md) as a reference.
+Place your API specification in `.github/specs/api/my-api-spec.md`. Use the [PetStore example](.github/specs/api/petstore-api-spec.md) as a reference.
 
 ### 2. Fill in Requirements
 
-Copy `requirements/api-requirements-template.md`, fill in endpoints, acceptance criteria, and test data needs.
+Copy `.github/requirements/api-requirements-template.md`, fill in endpoints, acceptance criteria, and test data needs.
 
 ### 3. Run the ASDD Pipeline (or generate manually)
 
 **With agents**: Invoke the Orchestrator Agent with your spec and requirements. It will produce Tasks, Questions, Models, Feature Files, and Step Definitions.
 
-**Manually**: Use the instructions in `instructions/api-automation-instructions.md` and the templates in `templates/api/` to create your files.
+**Manually**: Use the instructions in `.github/instructions/api-automation-instructions.md` and the templates in `templates/api/` to create your files.
 
 ### 4. Add Generated Files
 
@@ -196,15 +200,15 @@ Place files in the correct packages under `src/test/java/com/asdd/template/api/`
 
 ### 1. Add Your Spec
 
-Place your E2E specification in `specs/e2e/my-app-spec.md`.
+Place your E2E specification in `.github/specs/e2e/my-app-spec.md`.
 
 ### 2. Fill in Requirements
 
-Copy `requirements/e2e-requirements-template.md`, fill in user journeys, page inventory, and UI elements.
+Copy `.github/requirements/e2e-requirements-template.md`, fill in user journeys, page inventory, and UI elements.
 
 ### 3. Generate or Write Code
 
-Follow `instructions/e2e-automation-instructions.md`. Page objects go in `e2e/pages/`, tasks in `e2e/tasks/`.
+Follow `.github/instructions/e2e-automation-instructions.md`. Page objects go in `e2e/pages/`, tasks in `e2e/tasks/`.
 
 ### 4. Configure the Browser
 
@@ -332,13 +336,13 @@ Override URLs via system properties:
 ## How to Extend
 
 ### New API Endpoint
-1. Add the endpoint to `specs/api/your-spec.md`.
-2. Add requirements to `requirements/api-requirements-template.md`.
+1. Add the endpoint to `.github/specs/api/your-spec.md`.
+2. Add requirements to `.github/requirements/api-requirements-template.md`.
 3. Run the ASDD pipeline → generates new Task + Scenario + Step Definition.
 4. Or manually: add a Task class in `api/tasks/`, a scenario in the `.feature` file, and wire it in `api/stepdefinitions/`.
 
 ### New Page / User Journey
-1. Add the page to `specs/e2e/your-spec.md`.
+1. Add the page to `.github/specs/e2e/your-spec.md`.
 2. Run the ASDD pipeline → generates Page Object + Task + Scenario + Step Definition.
 3. Or manually: add a `*Page.java` in `e2e/pages/`, a Task in `e2e/tasks/`, and wire in step defs.
 
@@ -361,9 +365,9 @@ Override URLs via system properties:
 | [docs/skill-catalog.md](docs/skill-catalog.md) | All skills with inputs/outputs |
 | [docs/inputs-outputs.md](docs/inputs-outputs.md) | Pipeline stage contracts |
 | [docs/configuration-and-execution.md](docs/configuration-and-execution.md) | Config, run commands, CI setup |
-| [instructions/api-automation-instructions.md](instructions/api-automation-instructions.md) | API coding guide for agents |
-| [instructions/e2e-automation-instructions.md](instructions/e2e-automation-instructions.md) | E2E coding guide for agents |
-| [instructions/shared-conventions.md](instructions/shared-conventions.md) | Naming and code style conventions |
+| [.github/instructions/api-automation-instructions.md](.github/instructions/api-automation-instructions.md) | API coding guide for agents |
+| [.github/instructions/e2e-automation-instructions.md](.github/instructions/e2e-automation-instructions.md) | E2E coding guide for agents |
+| [.github/instructions/shared-conventions.md](.github/instructions/shared-conventions.md) | Naming and code style conventions |
 
 ---
 
