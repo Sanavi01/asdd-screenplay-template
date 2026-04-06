@@ -22,7 +22,7 @@ Detailed description of every agent in the ASDD pipeline, including their role, 
 
 ## Orchestrator Agent
 
-**File**: `agents/orchestrator-agent.md`
+**File**: `.github/agents/orchestrator-agent.md`
 
 **Role**: Master coordinator. Does not generate code; only plans, delegates, and integrates.
 
@@ -43,7 +43,7 @@ Detailed description of every agent in the ASDD pipeline, including their role, 
 
 ## Spec Analyst Agent
 
-**File**: `agents/spec-analyst-agent.md`
+**File**: `.github/agents/spec-analyst-agent.md`
 
 **Role**: First-pass spec interpreter. Transforms raw input into structured data.
 
@@ -60,14 +60,14 @@ Detailed description of every agent in the ASDD pipeline, including their role, 
 
 ## Test Designer Agent
 
-**File**: `agents/test-designer-agent.md`
+**File**: `.github/agents/test-designer-agent.md`
 
 **Role**: BDD scenario author. Produces human-readable, business-language Gherkin.
 
 **Responsibilities**:
 - Create feature files from scenario candidates.
 - Apply BDD best practices (Given/When/Then, Background, Scenario Outline).
-- Assign tags per the convention in `instructions/shared-conventions.md`.
+- Assign tags per the convention in `.github/instructions/shared-conventions.md`.
 - Ensure every acceptance criterion maps to at least one scenario.
 - Include negative cases identified by the Spec Analyst.
 
@@ -77,7 +77,7 @@ Detailed description of every agent in the ASDD pipeline, including their role, 
 
 ## Screenplay Architect Agent
 
-**File**: `agents/screenplay-architect-agent.md`
+**File**: `.github/agents/screenplay-architect-agent.md`
 
 **Role**: Technical design authority. Decides the shape of the implementation before any code is generated.
 
@@ -94,7 +94,7 @@ Detailed description of every agent in the ASDD pipeline, including their role, 
 
 ## Task Generator Agent
 
-**File**: `agents/task-generator-agent.md`
+**File**: `.github/agents/task-generator-agent.md`
 
 **Role**: Generates Screenplay Task Java classes.
 
@@ -109,7 +109,7 @@ Detailed description of every agent in the ASDD pipeline, including their role, 
 
 ## Question Generator Agent
 
-**File**: `agents/question-generator-agent.md`
+**File**: `.github/agents/question-generator-agent.md`
 
 **Role**: Generates Screenplay Question Java classes.
 
@@ -123,7 +123,7 @@ Detailed description of every agent in the ASDD pipeline, including their role, 
 
 ## Model Generator Agent
 
-**File**: `agents/model-generator-agent.md`
+**File**: `.github/agents/model-generator-agent.md`
 
 **Role**: Generates Java POJOs representing API request/response entities.
 
@@ -137,7 +137,7 @@ Detailed description of every agent in the ASDD pipeline, including their role, 
 
 ## Step Definition Agent
 
-**File**: `agents/step-definition-agent.md`
+**File**: `.github/agents/step-definition-agent.md`
 
 **Role**: Generates Cucumber glue code connecting Gherkin to Screenplay.
 
@@ -152,7 +152,7 @@ Detailed description of every agent in the ASDD pipeline, including their role, 
 
 ## Review Agent
 
-**File**: `agents/review-agent.md`
+**File**: `.github/agents/review-agent.md`
 
 **Role**: Quality gate. Validates all artifacts before delivery.
 

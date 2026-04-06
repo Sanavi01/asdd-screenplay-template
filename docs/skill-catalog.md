@@ -8,17 +8,17 @@ Complete reference for all skills available in the ASDD pipeline. Skills are ato
 
 | Skill | File | Used By |
 |---|---|---|
-| Spec Analyzer | `skills/spec-analyzer.md` | Spec Analyst Agent |
-| Gherkin Generator | `skills/gherkin-generator.md` | Test Designer Agent |
-| Screenplay Task Generator | `skills/screenplay-task-generator.md` | Task Generator Agent |
-| Screenplay Question Generator | `skills/screenplay-question-generator.md` | Question Generator Agent |
-| Model Generator | `skills/model-generator.md` | Model Generator Agent |
-| Step Definition Generator | `skills/step-definition-generator.md` | Step Definition Agent |
-| Test Data Generator | `skills/test-data-generator.md` | Test Designer, Step Def Agent |
-| Coverage Analyzer | `skills/coverage-analyzer.md` | Review Agent |
-| Naming Convention Checker | `skills/naming-convention-checker.md` | Review Agent |
-| Contract Consistency Checker | `skills/contract-consistency-checker.md` | Review Agent |
-| Negative Case Designer | `skills/negative-case-designer.md` | Test Designer, Spec Analyst |
+| Spec Analyzer | `.github/skills/spec-analyzer.md` | Spec Analyst Agent |
+| Gherkin Generator | `.github/skills/gherkin-generator.md` | Test Designer Agent |
+| Screenplay Task Generator | `.github/skills/screenplay-task-generator.md` | Task Generator Agent |
+| Screenplay Question Generator | `.github/skills/screenplay-question-generator.md` | Question Generator Agent |
+| Model Generator | `.github/skills/model-generator.md` | Model Generator Agent |
+| Step Definition Generator | `.github/skills/step-definition-generator.md` | Step Definition Agent |
+| Test Data Generator | `.github/skills/test-data-generator.md` | Test Designer, Step Def Agent |
+| Coverage Analyzer | `.github/skills/coverage-analyzer.md` | Review Agent |
+| Naming Convention Checker | `.github/skills/naming-convention-checker.md` | Review Agent |
+| Contract Consistency Checker | `.github/skills/contract-consistency-checker.md` | Review Agent |
+| Negative Case Designer | `.github/skills/negative-case-designer.md` | Test Designer, Spec Analyst |
 
 ---
 
@@ -124,7 +124,7 @@ Complete reference for all skills available in the ASDD pipeline. Skills are ato
 
 **Purpose**: Validate that all generated code conforms to naming conventions.
 
-**Inputs**: Generated Java source files, `instructions/shared-conventions.md`.
+**Inputs**: Generated Java source files, `.github/instructions/shared-conventions.md`.
 
 **Outputs**: Violation list with file, severity (PASS/FAIL/WARN), and remediation hint.
 
