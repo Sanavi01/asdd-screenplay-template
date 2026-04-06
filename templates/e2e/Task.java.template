@@ -1,0 +1,36 @@
+package {{PACKAGE}};
+
+import {{CONSTANTS_IMPORT}};
+import net.serenitybdd.screenplay.Actor;
+import net.serenitybdd.screenplay.Task;
+import net.serenitybdd.screenplay.actions.Click;
+import net.serenitybdd.screenplay.actions.Enter;
+import net.serenitybdd.screenplay.actions.Open;
+import {{PAGE_IMPORT}};
+
+/**
+ * Task: {{TASK_NAME}}
+ * Description: {{TASK_DESCRIPTION}}
+ * Page: {{PAGE_CLASS}}
+ */
+public class {{TASK_NAME}} implements Task {
+
+    {{#HAS_PARAMS}}
+    private final {{PARAMETER_TYPE}} {{PARAMETER_NAME}};
+
+    public {{TASK_NAME}}({{PARAMETER_TYPE}} {{PARAMETER_NAME}}) {
+        this.{{PARAMETER_NAME}} = {{PARAMETER_NAME}};
+    }
+    {{/HAS_PARAMS}}
+
+    public static {{TASK_NAME}} {{FACTORY_METHOD_NAME}}({{FACTORY_PARAMS}}) {
+        return new {{TASK_NAME}}({{FACTORY_ARGS}});
+    }
+
+    @Override
+    public <T extends Actor> void performAs(T actor) {
+        actor.attemptsTo(
+            {{INTERACTIONS}}
+        );
+    }
+}

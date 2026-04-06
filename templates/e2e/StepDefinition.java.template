@@ -1,0 +1,44 @@
+package {{PACKAGE}};
+
+import {{TASK_IMPORTS}};
+import {{QUESTION_IMPORTS}};
+import {{PAGE_IMPORTS}};
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.When;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.And;
+import net.serenitybdd.screenplay.Actor;
+import net.serenitybdd.screenplay.questions.Text;
+
+import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
+import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
+import static org.assertj.core.api.Assertions.assertThat;
+
+/**
+ * Step Definitions: {{CLASS_NAME}}
+ * Feature: {{FEATURE_NAME}}
+ * Glue package: {{PACKAGE}}
+ */
+public class {{CLASS_NAME}} {
+
+    @Given("I am on the {{PAGE_NAME}} page")
+    public void iAmOnThePage() {
+        Actor user = theActorCalled("User");
+        user.attemptsTo(
+            NavigateTo.thePageAt({{CONSTANTS_CLASS}}.BASE_URL + {{CONSTANTS_CLASS}}.{{PAGE_PATH_CONSTANT}})
+        );
+    }
+
+    @When("{{WHEN_STEP_PATTERN}}")
+    public void {{WHEN_METHOD_NAME}}({{WHEN_PARAMS}}) {
+        Actor actor = theActorInTheSpotlight();
+        actor.attemptsTo({{TASK_CLASS}}.{{TASK_FACTORY}}({{TASK_ARGS}}));
+    }
+
+    @Then("{{THEN_STEP_PATTERN}}")
+    public void {{THEN_METHOD_NAME}}({{THEN_PARAMS}}) {
+        Actor actor = theActorInTheSpotlight();
+        assertThat(actor.asksFor({{QUESTION_CLASS}}.{{QUESTION_FACTORY}}()))
+            .{{ASSERTION_METHOD}}({{EXPECTED_VALUE}});
+    }
+}

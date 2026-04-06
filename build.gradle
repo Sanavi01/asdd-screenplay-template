@@ -1,0 +1,51 @@
+plugins {
+    id 'java'
+    id 'net.serenity-bdd.serenity-gradle-plugin' version '5.3.9'
+}
+
+group = 'com.asdd'
+version = '1.0.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    serenityVersion = '5.3.7'
+    cucumberVersion = '7.20.1'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+dependencies {
+    testImplementation "net.serenity-bdd:serenity-core:${serenityVersion}"
+    testImplementation "net.serenity-bdd:serenity-cucumber:${serenityVersion}"
+    testImplementation "net.serenity-bdd:serenity-screenplay:${serenityVersion}"
+    testImplementation "net.serenity-bdd:serenity-screenplay-rest:${serenityVersion}"
+    testImplementation "net.serenity-bdd:serenity-ensure:${serenityVersion}"
+    testImplementation "io.cucumber:cucumber-java:${cucumberVersion}"
+    testImplementation "io.cucumber:cucumber-junit-platform-engine:${cucumberVersion}"
+    testImplementation "org.junit.platform:junit-platform-launcher:1.10.1"
+    testImplementation "org.junit.platform:junit-platform-suite:1.10.1"
+    testImplementation "net.serenity-bdd:serenity-junit5:${serenityVersion}"
+    testImplementation 'org.assertj:assertj-core:3.27.7'
+    testImplementation 'ch.qos.logback:logback-classic:1.4.14'
+    // E2E dependencies
+    testImplementation "net.serenity-bdd:serenity-screenplay-webdriver:${serenityVersion}"
+}
+
+test {
+    useJUnitPlatform()
+    systemProperty 'cucumber.filter.tags', System.getProperty('cucumber.filter.tags', '')
+}
+
+serenity {
+    reports = ['single-page-html']
+}
+
+tasks.named('test') {
+    finalizedBy aggregate
+}

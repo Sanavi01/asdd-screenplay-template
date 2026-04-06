@@ -1,0 +1,33 @@
+package {{PACKAGE}};
+
+import {{MODEL_IMPORT}};
+import {{CONSTANTS_IMPORT}};
+import io.restassured.http.ContentType;
+import net.serenitybdd.screenplay.Actor;
+import net.serenitybdd.screenplay.Task;
+import net.serenitybdd.screenplay.rest.interactions.{{HTTP_INTERACTION}};
+
+/**
+ * Task: {{TASK_NAME}}
+ * Description: {{TASK_DESCRIPTION}}
+ */
+public class {{TASK_NAME}} implements Task {
+
+    private final {{PARAMETER_TYPE}} {{PARAMETER_NAME}};
+
+    public {{TASK_NAME}}({{PARAMETER_TYPE}} {{PARAMETER_NAME}}) {
+        this.{{PARAMETER_NAME}} = {{PARAMETER_NAME}};
+    }
+
+    public static {{TASK_NAME}} {{FACTORY_METHOD_NAME}}({{PARAMETER_TYPE}} {{PARAMETER_NAME}}) {
+        return new {{TASK_NAME}}({{PARAMETER_NAME}});
+    }
+
+    @Override
+    public <T extends Actor> void performAs(T actor) {
+        actor.attemptsTo(
+            {{HTTP_INTERACTION}}.{{HTTP_METHOD_CALL}}({{CONSTANTS_CLASS}}.{{ENDPOINT_CONSTANT}})
+                .with({{REQUEST_SPEC}})
+        );
+    }
+}
